@@ -1,0 +1,75 @@
+
+:root {
+  --pale-blue: #99eeff;
+  --pale-orange: #ffaa99;
+  --dark-blue: #000035;
+  --dark-orange: #b35500
+/* if in doubt add green */    
+}
+
+body {background-color: var(--pale-blue)}
+
+.container {margin: 0 auto;
+max-width: 300px}
+
+button {cursor: pointer;
+border: solid 1px yellow;
+margin-bottom: 5px;
+height: 25px;
+background: var(--dark-orange);
+color: var(--pale-blue);
+font-size: 1rem;
+}
+
+div, span {padding: 10px;}
+
+input {width: 26px}
+
+#wallet {
+  border: solid 10px brown;
+  background: var(--dark-blue)
+}
+
+#flextainer {display: flex;
+padding: 0}
+
+#cointainer, #dicetainer {border: solid 1px brown;
+width: 50%;
+}
+
+#gentainer {color: var(--pale-orange);
+font-weight: bold}
+
+#flip-btn {border: solid 1px yellow;
+border-radius: 50%;
+width: 66px;
+height: 66px;
+margin: auto;
+text-align: center;
+background: var(--dark-orange);
+color: var(--pale-blue);
+cursor: pointer;
+font-size: 1.2rem}
+
+#flip-btn p {margin-top: 1px }
+
+.coin-result {padding-top: 18px}
+
+.dice-result {font-size: 2.2rem;
+font-weight: bold}
+
+#roll-btn {border: solid 1px yellow;
+width: 62px;
+height: 62px;
+border-radius: 10%;
+text-align: center;
+margin: 0 auto;
+background: var(--dark-orange);
+color: var(--pale-blue);
+cursor: pointer;
+font-size: 1.2rem;}
+
+#roll-btn p {margin: 10px auto}
+
+#gen-output {color: var(--pale-blue);
+font-size: 1.3rem}
