@@ -25,17 +25,3 @@ genBtn.addEventListener('click', () => {
   let to = parseInt(document.getElementById('maxput').value);
   genOutput.textContent = RNG(from, to)
 })
-
-
-
-flipBtn.addEventListener('click', () => {
-  let coin = RNG(1, 2);
-  if (coin === 1) {coinOutput.textContent = 'Heads'}
-  else {coinOutput.textContent = 'Tails'}
-})
-
-genBtn.addEventListener('click', () => {
-  let from = parseInt(document.getElementById('minput').value);
-  let to = parseInt(document.getElementById('maxput').value);
-  genOutput.textContent = RNG(from, to)
-})
