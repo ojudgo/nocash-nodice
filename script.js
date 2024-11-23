@@ -39,5 +39,3 @@ genBtn.addEventListener('click', () => {
   let to = parseInt(document.getElementById('maxput').value);
   genOutput.textContent = RNG(from, to)
 })
-
-*/
