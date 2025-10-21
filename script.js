@@ -1,107 +1,85 @@
-* {brder: solid 1px black;
-  font-family: sans-serif;
-  
-  
-}
+const rollBtn = document.getElementById('roll-btn');
+const flipBtn = document.getElementById('flip-btn');
+const genBtn = document.getElementById('generate-btn');
 
-:root {
-  --pale-blue: #99eeff;
-  --pale-orange: #ffaa99;
-  --dark-blue: #000035;
-  --dark-orange: #b35500
-/* if in doubt add green */    
-}
+const diceOutput = document.getElementById('dice-output');
+const coinOutput = document.getElementById('coin-output');
+const genOutput = document.getElementById('gen-output');
 
-body {background-color: var(--pale-blue)}
+const RNG = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+};
 
-.container {margin: 0 auto;
-max-width: 300px}
+rollBtn.addEventListener('click', () => {
+  rollBtn.classList.add('rotate'); // start spinning
 
-button {cursor: pointer;
-border: solid 1px yellow;
-margin-bottom: 5px;
-height: 25px;
-background: var(--dark-orange);
-color: var(--pale-blue);
-font-size: 1rem;
-}
+  setTimeout(() => {
+    rollBtn.innerHTML = `<p class='dice-result'>${RNG(1, 6)}</p>`;
+    
 
-div, span {padding: 10px;}
+    rollBtn.classList.remove('rotate'); // reset for next click
+  }, 600); // matches animation duration
+})
 
-input {width: 26px}
+flipBtn.addEventListener('click', () => {
+  flipBtn.classList.add('spin'); // start spinning
 
-#wallet {
-  border: solid 10px brown;
-  background: var(--dark-blue)
-}
+  setTimeout(() => {
+    let coin = RNG(1, 2);
+    if (coin === 1) {
+      flipBtn.innerHTML = `<p class='coin-result'>Heads</p>`;
+    } else {
+      flipBtn.innerHTML = `<p class='coin-result'>Tails</p>`;
+    }
 
-#flextainer {display: flex;
-padding: 0}
+    flipBtn.classList.remove('spin'); // reset for next click
+  }, 600); // matches animation duration
+})
 
-#cointainer, #dicetainer {border: solid 1px brown;
-width: 50%;
-}
-
-#gentainer {color: var(--pale-orange);
-font-weight: bold}
-
-#flip-btn {border: solid 1px yellow;
-border-radius: 50%;
-width: 66px;
-height: 66px;
-margin: auto;
-text-align: center;
-background: var(--dark-orange);
-color: var(--pale-blue);
-cursor: pointer;
-font-size: 1.2rem;
-transition: transform 0.3s;
-}
-
-.spin {
-  animation: spin 0.6s linear;
-}
-
-@keyframes spin {
-  0% { transform: rotateX(0deg); }
-  50% { transform: rotateX(180deg); }
-  100% { transform: rotateX(360deg); }
-}
-
-#flip-btn p {margin-top: 1px }
-
-.coin-result {padding-top: 18px}
-
-.dice-result {font-size: 2.2rem;
-font-weight: bold}
-
-#roll-btn {border: solid 1px yellow;
-width: 62px;
-height: 62px;
-border-radius: 10%;
-text-align: center;
-margin: 0 auto;
-background: var(--dark-orange);
-color: var(--pale-blue);
-cursor: pointer;
-font-size: 1.2rem;
-  transition: transform 0.3s;
-}
-
-.rotate {
-  animation: rotate 0.6s linear;
-}
-
-@keyframes rotate {
-  0% { transform: rotateZ(0deg); }
-  50% { transform: rotateZ(180deg); }
-  100% { transform: rotateZ(360deg); }
-}
+genBtn.addEventListener('click', () => {
+  let from = parseInt(document.getElementById('minput').value);
+  let to = parseInt(document.getElementById('maxput').value);
+  genOutput.textContent = RNG(from, to)
+})
 
 
 
-#roll-btn p {margin: 10px auto}
+/* PROTOTYPE
 
-#gen-output {color: var(--pale-blue);
-font-size: 1.3rem}
+const rollBtn = document.getElementById('roll-btn');
+const flipBtn = document.getElementById('flip-btn');
+const genBtn = document.getElementById('generate-btn');
+
+const diceOutput = document.getElementById('dice-output');
+const coinOutput = document.getElementById('coin-output');
+const genOutput = document.getElementById('gen-output');
+
+
+
+// my RNG function
+const RNG = (min, max) => {
+  return Math.floor(Math.random() * max) + min
+};
+
+const RNG = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+};
+
+rollBtn.addEventListener('click', () => {
+  diceOutput.textContent = RNG(1, 6);
+})
+
+flipBtn.addEventListener('click', () => {
+  let coin = RNG(1, 2);
+  if (coin === 1) {coinOutput.textContent = 'Heads'}
+  else {coinOutput.textContent = 'Tails'}
+})
+
+genBtn.addEventListener('click', () => {
+  let from = parseInt(document.getElementById('minput').value);
+  let to = parseInt(document.getElementById('maxput').value);
+  genOutput.textContent = RNG(from, to)
+})
+
+*/
 
